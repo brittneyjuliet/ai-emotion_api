@@ -17,6 +17,15 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# ----------------------------
+# (Optional) Preload your Hugging Face model
+# ----------------------------
+RUN python -c "\
+from transformers import Wav2Vec2ForSequenceClassification, Wav2Vec2FeatureExtractor; \
+Wav2Vec2ForSequenceClassification.from_pretrained('brittneyjuliet/ascended-intelligence-model'); \
+Wav2Vec2FeatureExtractor.from_pretrained('brittneyjuliet/ascended-intelligence-model') \
+"
+
 # Copy project source code
 COPY . .
 
