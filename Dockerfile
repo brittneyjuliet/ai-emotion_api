@@ -29,8 +29,13 @@ Wav2Vec2FeatureExtractor.from_pretrained('brittneyjuliet/ascended-intelligence-m
 # Copy project source code
 COPY . .
 
+# Set env vars so Docker knows where HF cache should live
+# ENV HF_HOME=/tmp/huggingface_cache
+# ENV TRANSFORMERS_CACHE=/tmp/huggingface_cache
+# ENV HUGGINGFACE_HUB_CACHE=/tmp/huggingface_cache
+
 # Expose FastAPI port
-EXPOSE 8000
+EXPOSE 7860
 
 # Start FastAPI server
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860", "--reload"]

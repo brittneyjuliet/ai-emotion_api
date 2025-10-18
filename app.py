@@ -150,6 +150,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from transformers import Wav2Vec2ForSequenceClassification, Wav2Vec2FeatureExtractor
 from pydub import AudioSegment
 
+# ---------------------------------------------------------
+# 🔧 1. Fix cache permissions for Hugging Face Spaces
+# ---------------------------------------------------------
+# CACHE_DIR = "/tmp/huggingface_cache"
+# os.environ["HF_HOME"] = CACHE_DIR
+# os.environ["TRANSFORMERS_CACHE"] = CACHE_DIR
+# os.environ["HUGGINGFACE_HUB_CACHE"] = CACHE_DIR
+
+# os.makedirs(CACHE_DIR, exist_ok=True)
+
 # ----------------------------
 # Initialize FastAPI app
 # ----------------------------
@@ -159,7 +169,7 @@ app = FastAPI(title="Emotion Detection API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:8080",
+        "http://localhost:7860",
         "https://brittneyjuliet.github.io"
     ],  # Change to your frontend URL in production
     allow_credentials=True,
