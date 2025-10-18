@@ -160,7 +160,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:8080",
-        "https://brittneyjuliet.github.io/ai-interactive_website"
+        "https://brittneyjuliet.github.io"
     ],  # Change to your frontend URL in production
     allow_credentials=True,
     allow_methods=["*"],
