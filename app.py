@@ -169,7 +169,7 @@ app = FastAPI(title="Emotion Detection API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:7860",
+        "http://localhost:8000",
         "https://brittneyjuliet.github.io"
     ],  # Change to your frontend URL in production
     allow_credentials=True,
@@ -214,11 +214,11 @@ class Wav2Vec2EmotionAnalyzer:
         self.model.to(self.device)
 
         self.id2label = {
-            0: "anger_fear",
-            1: "joy_excited",
-            2: "sadness",
-            3: "curious_reflective",
-            4: "calm_content",
+            0: "ANGER_FEAR",
+            1: "JOY_EXCITED",
+            2: "SADNESS",
+            3: "CURIOUS_REFLECTIVE",
+            4: "CALM_CONTENT",
         }
 
     def analyze_emotion(self, audio_path: str) -> str:
