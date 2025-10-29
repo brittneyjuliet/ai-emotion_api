@@ -171,7 +171,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:8000",
         "https://brittneyjuliet.github.io",
-        "https://mzpalmer-cpu.github.io/ai-interactive_website/"
+        "https://mzpalmer-cpu.github.io"
     ],  # Change to your frontend URL in production
     allow_credentials=True,
     allow_methods=["*"],
